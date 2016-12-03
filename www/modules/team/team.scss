@@ -1,0 +1,14 @@
+.team{
+	.item-divider-role{
+		text-transform:capitalize;
+	}
+	.box-img {
+	    position: absolute;
+	    left: 16px;
+	    width: 35px;
+	    text-align: center;
+	    img{
+	    	max-width: 100%;
+	    }
+	}
+}

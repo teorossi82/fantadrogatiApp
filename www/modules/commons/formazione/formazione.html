@@ -1,0 +1,149 @@
+<div class="formazione">
+	<div class="content-moduli" ng-if="vm.options.view.moduli">
+		<div class="wrapper-moduli" id="wrapper-moduli" ng-iscroll="wrapper-moduli" ng-iscroll-delay='50'>
+			<div class="scroller">
+				<div class="box-modulo positive" 
+					ng-class="{'bg-positive':modulo===vm.formazione1.modulo}" 
+					ng-repeat="modulo in vm.moduli"
+					ng-click="vm.setModulo(modulo)">
+					{{modulo}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content-campo" style="height:{{vm.campoHeight}}px;">
+		<div class="box-campo" ng-class="{'num-form-2':vm.formazione2}" style="margin-right:{{vm.campoMarginRight}}px;">
+			<div class="box-formazione formazione-1" style="height:{{vm.formHeight}}">
+				<div class="box-reparto box-portiere">
+					<div class="box-giocatore" ng-click="vm.onClickPlayer($event,vm.formazione1.campo.p[0],'campo')">
+						<div class="img-giocatore" ng-bind-html="vm.getImagePlayer(vm.formazione1.campo.p[0])"></div>
+						<div class="nome-giocatore">{{vm.formazione1.campo.p[0].name}}</div>
+					</div>
+				</div>
+				<div class="box-reparto box-difesa">
+					<div class="box-giocatore" 
+						ng-repeat="player in vm.formazione1.campo.d" 
+						style="width:{{100/vm.formazione1.campo.d.length}}%"
+						ng-click="vm.onClickPlayer($event,player,'campo')">
+						<div class="img-giocatore" ng-bind-html="vm.getImagePlayer(player)"></div>
+						<div class="nome-giocatore">{{player.name}}</div>
+					</div>
+				</div>
+				<div class="box-reparto box-centrocampo">
+					<div class="box-giocatore" 
+						ng-repeat="player in vm.formazione1.campo.c" 
+						style="width:{{100/vm.formazione1.campo.c.length}}%"
+						ng-click="vm.onClickPlayer($event,player,'campo')">
+						<div class="img-giocatore" ng-bind-html="vm.getImagePlayer(player)"></div>
+						<div class="nome-giocatore">{{player.name}}</div>
+					</div>
+				</div>
+				<div class="box-reparto box-attacco">
+					<div class="box-giocatore" 
+						ng-repeat="player in vm.formazione1.campo.a" 
+						style="width:{{100/vm.formazione1.campo.a.length}}%"
+						ng-click="vm.onClickPlayer($event,player,'campo')">
+						<div class="img-giocatore" ng-bind-html="vm.getImagePlayer(player)"></div>
+						<div class="nome-giocatore">{{player.name}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-formazione formazione-2" ng-if="vm.formazione2" style="height:{{vm.formHeight}}">
+				<div class="box-reparto box-attacco">
+					<div class="box-giocatore" 
+						ng-repeat="player in vm.formazione2.campo.a" 
+						style="width:{{100/vm.formazione2.campo.a.length}}%"
+						ng-click="vm.onClickPlayer($event,player,'campo')">
+						<div class="img-giocatore" ng-bind-html="vm.getImagePlayer(player)"></div>
+						<div class="nome-giocatore">{{player.name}}</div>
+					</div>
+				</div>
+				<div class="box-reparto box-centrocampo">
+					<div class="box-giocatore" 
+						ng-repeat="player in vm.formazione2.campo.c" 
+						style="width:{{100/vm.formazione2.campo.c.length}}%"
+						ng-click="vm.onClickPlayer($event,player,'campo')">
+						<div class="img-giocatore" ng-bind-html="vm.getImagePlayer(player)"></div>
+						<div class="nome-giocatore">{{player.name}}</div>
+					</div>
+				</div>
+				<div class="box-reparto box-difesa">
+					<div class="box-giocatore" 
+						ng-repeat="player in vm.formazione2.campo.d" 
+						style="width:{{100/vm.formazione2.campo.d.length}}%"
+						ng-click="vm.onClickPlayer($event,player,'campo')">
+						<div class="img-giocatore" ng-bind-html="vm.getImagePlayer(player)"></div>
+						<div class="nome-giocatore">{{player.name}}</div>
+					</div>
+				</div>
+				<div class="box-reparto box-portiere">
+					<div class="box-giocatore" ng-click="vm.onClickPlayer($event,vm.formazione2.campo.p[0],'campo')">
+						<div class="img-giocatore" ng-bind-html="vm.getImagePlayer(vm.formazione2.campo.p[0])"></div>
+						<div class="nome-giocatore">{{vm.formazione2.campo.p[0].name}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="box-panca" ng-if="vm.options.view.panca">
+			<div class="box-single-panca panca-1" style="height:{{vm.formHeight}}">
+				<div class="box-panca-title bg-positive">Panca</div>
+				<div class="wrapper-panca" id="wrapper-panca-1" ng-iscroll="wrapper-panca-1" ng-iscroll-delay='50'>
+					<div class="scroller">
+						<div class="box-giocatore" ng-repeat="player in vm.formazione1.panca track by $index" ng-click="vm.onClickPlayer($event,player,'panca')">
+							<div class="img-giocatore" ng-bind-html="vm.getImagePlayer(player)"></div>
+							<div class="nome-giocatore positive">{{player.name.toLowerCase()}}</div>
+						</div>
+						<div class="margin-bottom"></div>
+					</div>
+				</div>
+			</div>
+			<div class="box-single-panca panca-2" ng-if="vm.formazione2" style="height:{{vm.formHeight}}">
+				<div class="box-panca-title bg-positive">Panca</div>
+				<div class="wrapper-panca" id="wrapper-panca-2" ng-iscroll="wrapper-panca-2" ng-iscroll-delay='50'>
+					<div class="scroller">
+						<div class="box-giocatore" ng-repeat="player in vm.formazione2.panca track by $index" ng-click="vm.onClickPlayer($event,player,'panca')">
+							<div class="img-giocatore" ng-bind-html="vm.getImagePlayer(player)"></div>
+							<div class="nome-giocatore positive">{{player.name.toLowerCase()}}</div>
+						</div>
+						<div class="margin-bottom"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content-menu bg-calm" ng-if="vm.options.view.menu">
+		<div class="btn-menu" ng-click="vm.save()">
+			<span class="ion-android-archive"></span>
+			Salva
+		</div>
+		<div class="btn-menu" ng-click="vm.copy()">
+			<span class="ion-android-clipboard"></span>
+			Copia
+		</div>
+		<div class="btn-menu" ng-click="vm.share()">
+			<span class="ion-social-whatsapp"></span>
+			Invia
+		</div>
+	</div>
+</div>
+<script id="modal-team.html" type="text/ng-template">
+	<ion-modal-view class="modalTeam">
+    	<ion-header-bar>
+    		<button class="button button-positive" ng-click="vm.manageModalTeam.closeModal()">
+            	Annulla
+        	</button>
+      		<h1 class="title">Scegli giocatore</h1>
+    	</ion-header-bar>
+    	<ion-content>
+    		<div class="list">
+	    		<div class="item item-avatar" ng-repeat="player in vm.manageModalTeam.lista" ng-click="vm.manageModalTeam.setGiocatore(player)">
+	                <div class="box-img">
+	                	<img src="img/maglie/{{player.team}}.jpg">
+	              	</div>
+	           		<h2>{{player.name}}</h2>
+	            	<p>{{player.team}}</p>
+	         	</div>
+	        </div>
+    	</ion-content>
+  	</ion-modal-view>
+</script>

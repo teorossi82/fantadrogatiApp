@@ -1,0 +1,202 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+transition-regular{
+  transition:0.3s linear;
+  -webkit-transition:0.3s linear;
+  -moz-transition:0.3s linear;
+  -o-transition:0.3s linear;
+}
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic.scss";
+@import "www/modules/team/team.scss";
+@import "www/modules/account/account.scss";
+@import "www/modules/commons/boxError/boxError.scss";
+@import "www/modules/commons/formazione/formazione.scss";
+
+.slide-in-right {
+  -webkit-transform: translateX(100%);
+    transform: translateX(100%); }
+
+.slide-in-right.ng-enter, .slide-in-right > .ng-enter {
+  -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
+  transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; }
+
+.slide-in-right.ng-enter-active, .slide-in-right > .ng-enter-active {
+  -webkit-transform: translateX(0);
+    transform: translateX(0); }
+
+.slide-in-right.ng-leave, .slide-in-right > .ng-leave {
+  -webkit-transition: all ease-in-out 250ms;
+  transition: all ease-in-out 250ms; }
+.transition-03{
+  transition: 0.3s linear;
+  -webkit-transition: 0.3s linear;
+  -moz-transition: 0.3s linear;
+}
+.center{
+  text-align:center;
+}
+.bg-positive{
+  background:$positive;
+  color:#FFF;
+}
+.bg-calm{
+  background:$calm;
+  color:#FFF;
+}
+.padding{
+  &-all{
+    padding:5px;
+    &-double{
+      padding:10px;
+    }
+  }
+  &-vertical{
+    padding-top:5px;
+    padding-bottom:5px;
+    &-double{
+      padding-top:10px;
+      padding-bottom:10px;
+    }
+  }
+  &-horizontal{
+    padding-left:5px;
+    padding-right:5px;
+    &-double{
+      padding-left:10px;
+      padding-right:10px;
+    }
+  }
+}
+.margin-tab{
+  height:45px;
+}
+ion-header-bar {
+  .button{
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+.scroll-refresher .ionic-refresher-content.ionic-refresher-with-text {
+    bottom: 25px;
+}
+.box-button {
+  margin-bottom: 20px;
+  &.center{
+    text-align: center;
+    .button{
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+}
+.app-menu{
+}
+.box-nodata {
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    margin: 5px 0 10px;
+    padding: 5px;
+}
+.box-feedback {
+    position: fixed;
+    top: 200px;
+    z-index: 10;
+    width: 300px;
+    padding: 10px;
+    left: 50%;
+    margin-left: -155px;
+    text-align: center;
+    background: rgba(56,126,245,0.8);
+    color:#FFF;
+    border-radius:10px;
+    h4{
+        color:#FFF; 
+    }
+}
+.loading {
+    .spinner{
+      color: #FFF !important;
+      stroke: #FFF;
+      fill: #FFF;
+    }
+    span{
+      vertical-align: top;
+      line-height: 30px;
+    }
+}
+.box-btn-up {
+    position: fixed;
+    bottom: 105px;
+    right: 5px;
+    width: 40px;
+    z-index: 10;
+    font-size: 30px;
+    background: #172983;
+    text-align: center;
+    padding: 5px;
+    border-radius: 20px;
+    color: #FFF;
+}
+.tabs-choice {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    top: 44px;
+}
+.tab-choice {
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+}
+ion-content.has-tabs{
+  top:84px;
+}
+.btn-item{
+  position:absolute;
+  top:5px;
+  font-size:12px;
+  padding:3px 5px;
+  cursor:pointer;
+  &-positive{
+    color:#FFF;
+    background:$positive;
+  }
+  &-left{
+    left:5px;
+  }
+  &-right{
+    right:5px;
+  }
+}
+.platform-ios.platform-cordova:not(.fullscreen){
+  ion-content.has-tabs{
+    top:104px !important;
+  }
+}
+
+.platform-android{
+}

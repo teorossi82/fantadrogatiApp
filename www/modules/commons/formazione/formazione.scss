@@ -1,0 +1,164 @@
+form-img-giocatore{
+	width: 35px;
+	height: 35px;
+	background: #FFF;
+	border-radius: 20px;
+	overflow: hidden;
+	text-align: center;
+	margin: auto;
+	img{
+		max-width:100%;
+		max-height:100%;
+	}
+}
+form-nome-giocatore{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 11px;
+	background: rgba(0,0,0,0.4);
+	margin: 3px;
+	line-height: 14px;
+	text-transform:capitalize;
+}
+.formazione{
+	position:relative;
+	.content-moduli{
+		height:30px;
+		position:relative;
+		.wrapper-moduli {
+			position:absolute; 
+			z-index:1;
+			top:0px; 
+			bottom:0px; 
+			left:0px;
+			right:0;
+			overflow:auto;
+		}
+		.scroller {
+			position:relative;
+			-webkit-tap-highlight-color:rgba(0,0,0,0);
+			float:left;
+			width:515px;
+			padding:0;
+		}
+		.box-modulo {
+		    float: left;
+		    padding: 5px 10px;
+    		font-size: 18px;
+		}
+	}
+	.content-menu{
+		height:30px;
+		.btn-menu{
+			float: left;
+		    width: 33%;
+		    text-align: center;
+		    font-size: 18px;
+		    line-height: 30px;
+		}
+	}
+	.content-campo{
+		position:relative;
+		@extend transition-regular;
+		.box-campo{
+			height:100%;
+			background-image:url("../modules/commons/formazione/img/campo.jpg");
+			background-size:100% 100%;
+			.box-formazione{
+				height: 50%;
+    			padding-top: 2%;
+			}
+			.box-reparto{
+				text-align:center;
+				height: 25%;
+			}
+			.box-giocatore {
+			    display: inline-block;
+			    vertical-align: top;
+			    .img-giocatore {
+				    @extend form-img-giocatore;
+				}
+				.nome-giocatore{
+				    @extend form-nome-giocatore;
+				    color: #FFF;
+				}
+			}
+			&.num-form-2{
+				.img-giocatore{
+					width: 25px;
+					height: 25px;
+					border-radius: 15px;
+				}
+			}
+		}
+		.box-panca{
+			background:#FFF;
+			width: 50px;
+		    height: 100%;
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    .box-single-panca {
+			    position: relative;
+			}
+			.box-panca-title{
+				padding:0 3px;
+			}
+		    .box-giocatore{
+		    	.img-giocatore {
+				    @extend form-img-giocatore
+				}
+				.nome-giocatore{
+				    @extend form-nome-giocatore;
+				    font-size:10px;
+				    background:transparent;
+				    text-overflow:initial;
+				}
+		    }
+		}
+		.form-separator{
+			height:10px;
+		}
+		.wrapper-panca {
+			position:absolute; 
+			z-index:1;
+			top:20px; 
+			bottom:0px; 
+			right:0;
+			width:50px;
+			overflow:auto;
+			.margin-bottom{
+				height:20px;
+			}
+		}
+		.scroller {
+			position:relative;
+			-webkit-tap-highlight-color:rgba(0,0,0,0);
+			float:left;
+			width:100%;
+			padding:0;
+		}
+	}
+}
+.modalTeam{
+	.box-img {
+		position: absolute;
+		left: 16px;
+		width: 35px;
+		text-align: center;
+		img{
+			max-width: 100%;
+		}
+	}
+}
+.nome-giocatore-popover{
+  height:55px;
+  text-align:center;
+  line-height: 12px;
+  img{
+    width: 18px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+}

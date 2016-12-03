@@ -1,0 +1,19 @@
+<ion-view class="teams" view-title="Squadre">
+	<ion-header-bar class="bar-positive">
+	  	<h1 class="title">Squadre</h1>
+	</ion-header-bar>
+	<ion-content>
+		<div class="list">
+            <div style="position:relative" ng-repeat="team in vm.teams" ng-click="vm.openTeam(team.id)">
+                <a class="item item-avatar" ng-class="{'enableModify':vm.enableModify}" >
+                    <img ng-src="img/user/user_{{team.id}}.png">
+                    <h2>{{team.name}}</h2>
+                </a>
+                <div class="box-right assertive" ng-if="vm.enableModify">
+                    <i class="icon ion-ios-minus"></i>
+                </div>
+            </div>
+        </div>
+        <div class="margin-tab"></div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,92 @@
+<ion-view view-title="Login" class="account">
+    <box-error options="accountCtrl.error"></box-error>
+    <div class="box-feedback" ng-if="accountCtrl.feedback">
+        <h4>{{accountCtrl.feedback.title}}</h4>
+        <p>{{accountCtrl.feedback.msg}}</p>
+        <button class="button button-dark" ng-click="accountCtrl.closeFeedback()">
+            Chiudi
+        </button>
+    </div>
+    <ion-header-bar class="bar-positive">
+        <a class="button" ng-click="accountCtrl.logout()" ng-if="accountCtrl.user._id">
+            <i class="icon ion-android-exit"></i>
+            Logout
+        </a>
+        <h1 class="title">Fantadrogato</h1>
+        <div class="buttons">
+            <a class="button" ng-click="accountCtrl.showMenuAccount()">
+                <i class="ion-navicon-round"></i>
+                Menù
+            </a>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="box-accedi">
+            <div class="box-login" ng-if="!accountCtrl.user._id">
+                <h4>Accedi</h4>
+                <div class="list">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Email</span>
+                        <input type="text" placeholder="Inserisci il tuo indirizzo email" ng-model="accountCtrl.user.username">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Password</span>
+                        <input type="password" placeholder="Inserisci la tua password" ng-model="accountCtrl.user.password">
+                    </label>
+                </div>
+                <div class="box-button center">
+                    <button class="button button-positive" ng-click="accountCtrl.prepareLogin()">
+                        Accedi
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="box-fantadrogato" ng-if="accountCtrl.user._id">
+            <!-- <div class="item item-divider bg-positive">
+                Formazione tipo
+                <div class="btn-item btn-item-positive btn-item-right" 
+                    ng-if="accountCtrl.formazione.options.state==='vedi'"
+                    ng-click="accountCtrl.setFormState('imposta')">
+                    Imposta
+                </div>
+                <div class="btn-item btn-item-positive btn-item-right" 
+                    ng-if="accountCtrl.formazione.options.state==='imposta'"
+                    ng-click="accountCtrl.setFormState('vedi')">
+                    Fine
+                </div>
+            </div>
+            <formazione options="accountCtrl.formazione.options" formazione1="accountCtrl.formazione.formazioneTipo" team="accountCtrl.formazione.team"></formazione>-->
+            <div class="next-games">
+                <div class="list" ng-repeat="games in accountCtrl.nextGames">
+                    <a class="item item-divider bg-calm light item-icon-left">
+                        <i class="icon" ng-class="{'ion-ribbon-b':games.label==='Campionato', 'ion-trophy':games.label!=='Campionato'}"></i>
+                        {{games.label}} - Giornata {{games.num}}
+                    </a>
+                    <a class="item item-icon-left" ng-class="{'positive':games.casa===accountCtrl.user.nome}" ng-click="accountCtrl.goToSetFormazione(games.uuid,games.casaId)">
+                        <i class="icon ion-tshirt"></i>
+                        {{games.casa}}
+                    </a>
+                    <a class="item item-icon-left" ng-class="{'positive':games.trasferta===accountCtrl.user.nome}" ng-click="accountCtrl.goToSetFormazione(games.uuid,games.trasfertaId)">
+                        <i class="icon ion-tshirt-outline"></i>
+                        {{games.trasferta}}
+                    </a>
+                    <!-- <div class="item item-divider bg-positive" id="anchor_form_{{games.uuid}}">
+                        Formazione
+                        <div class="btn-item btn-item-positive btn-item-right" 
+                            ng-if="games.formazioneOpts.state==='vedi'"
+                            ng-click="accountCtrl.setFormState(games,'imposta',$event)">
+                            Imposta
+                        </div>
+                        <div class="btn-item btn-item-positive btn-item-right" 
+                            ng-if="games.formazioneOpts.state==='imposta'"
+                            ng-click="accountCtrl.setFormState(games,'vedi',$event)">
+                            Fine
+                        </div>
+                    </div> -->
+                    <formazione uuid="games.uuid" options="games.formazioneOpts" formazione1="games.formazione[0]" formazione2="games.formazione[1]" team="accountCtrl.formazione.team"></formazione>
+                </div>
+            </div>
+        </div>
+        <div class="margin-tab"></div>
+    </ion-content>
+</ion-view>

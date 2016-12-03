@@ -1,0 +1,16 @@
+.box-error {
+    position: fixed;
+    top: 200px;
+    z-index: 100;
+    width: 300px;
+    padding: 10px;
+    left: 50%;
+    margin-left: -155px;
+    text-align: center;
+    background: rgba(56,126,245,0.8);
+    color:#FFF;
+    border-radius:10px;
+    h4{
+        color:#FFF; 
+    }
+}

@@ -1,0 +1,26 @@
+<div class="box-event-directive">
+    <div class="list card">
+        <div class="item-headerCustom">
+            <div class="box-data">
+                {{ boxEventCtrl.event.data_inizio.replace("T","") | amDateFormat:'ddd DD MMMM YYYY'}}
+            </div>
+        </div>
+        <div class="item item-avatar">
+            <!--<img ng-src="http://www.youdisco.it/admin/{{boxEventCtrl.disco.logo_url}}" ng-click="boxEventCtrl.attivaDisco()">-->
+            <img ng-src="img/logo_icon.png" load-src="http://www.youdisco.it/admin/{{boxEventCtrl.disco.logo_url}}" ng-click="boxEventCtrl.attivaDisco()"/>
+            <h2 ng-click="boxEventCtrl.attivaDisco()">{{boxEventCtrl.event.nome_discoteca}}</h2>
+            <p>{{boxEventCtrl.disco.citta}} ({{boxEventCtrl.disco.provincia}})</p>
+            <p><a ng-href="tel:{{boxEventCtrl.disco.telefono}}">{{boxEventCtrl.disco.telefono}}</a></p>
+        </div>
+        <div class="item item-body">
+            <h2 class="box-event-nome">{{boxEventCtrl.event.nome}}</h2>
+            <img class="full-image" ng-src="http://www.youdisco.it/admin/{{boxEventCtrl.event.locandina}}">
+            <p ng-bind-html="boxEventCtrl.event.descrizione">
+            </p>
+        </div>
+        <a class="item item-icon-left positive" ng-click="boxEventCtrl.shareEvent(boxEventCtrl.event.id_evento,'http://www.youdisco.it/admin/{{boxEventCtrl.event.locandina}}')">
+            <i class="icon ion-share"></i>
+            Condividi evento
+        </a>
+    </div>
+</div>

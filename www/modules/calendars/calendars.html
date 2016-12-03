@@ -1,0 +1,66 @@
+<ion-view class="calendars" view-title="Calendari">
+	<ion-header-bar class="bar-positive">
+	  	<h1 class="title">Calendari</h1>
+        <div class="buttons">
+            <a class="button" ng-click="vm.showMenuCalendars()">
+                <i class="ion-navicon-round"></i>
+                Menù
+            </a>
+        </div>
+	</ion-header-bar>
+    <div class="tabs-choice" ng-if="vm.tabActive==='campionato'">
+        <div class="tab-choice bg-positive" ng-class="{'bg-calm':vm.manageCampionato.tab===1}" ng-click="vm.manageCampionato.setFase(1)">1° fase</div>
+        <div class="tab-choice bg-positive" ng-class="{'bg-calm':vm.manageCampionato.tab===12}" ng-click="vm.manageCampionato.setFase(12)">2° fase</div>
+        <div class="tab-choice bg-positive" ng-class="{'bg-calm':vm.manageCampionato.tab===23}" ng-click="vm.manageCampionato.setFase(23)">3° fase</div>
+    </div>
+	<ion-content ng-class="{'has-tabs':vm.tabActive==='campionato'}">
+        <div class="prossimo" ng-if="vm.tabActive==='next'">
+            <div class="list">
+                <div class="item item-divider bg-positive">
+                    Prossima giornata
+                </div>
+                <div class="item item-divider positive">
+                    <i class="icon ion-ribbon-b"></i>
+                    Campionato
+                </div>
+            </div>
+            <div class="list card" ng-repeat="games in vm.listaPartite.campionato">
+                <a class="item item-icon-left" ng-class="{'positive':games.casa===vm.user.nome}">
+                    <i class="icon ion-tshirt"></i>
+                    {{games.casa}}
+                </a>
+                <a class="item item-icon-left" ng-class="{'positive':games.trasferta===vm.user.nome}">
+                    <i class="icon ion-tshirt-outline"></i>
+                    {{games.trasferta}}
+                </a>
+            </div>
+            <div class="list">
+                <div class="item item-divider positive">
+                     <i class="icon ion-trophy"></i>
+                    {{vm.coppaActive.label}}
+                </div>
+            </div>
+            <div class="list card" ng-repeat="games in vm.listaPartite.coppa">
+                <a class="item item-icon-left" ng-class="{'positive':games.casa===vm.user.nome}">
+                    <i class="icon ion-tshirt"></i>
+                    {{games.casa}}
+                </a>
+                <a class="item item-icon-left" ng-class="{'positive':games.trasferta===vm.user.nome}">
+                    <i class="icon ion-tshirt-outline"></i>
+                    {{games.trasferta}}
+                </a>
+            </div>
+            <div class="margin-tab"></div>
+        </div>
+        <div class="campionato" ng-if="vm.tabActive==='campionato'">
+            <div class="list" ng-repeat="giornata in vm.manageCampionato.giornateHumanized">
+                <div class="item item-divider positive">
+                    {{$index+vm.manageCampionato.tab}}° giornata
+                </div>
+                <div class="item" ng-repeat="game in giornata">
+                    {{game.casa}} - {{game.trasferta}}
+                </div>
+            </div>
+        </div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<ion-view class="team" view-title="Team">
+	<ion-header-bar class="bar-positive">
+        <button class="button icon-left ion-arrow-left-c" ng-click="vm.backUrl()">Indietro</button>
+	  	<h1 class="title">{{vm.team.name}}</h1>
+        <div class="buttons">
+            <a class="button" ng-click="vm.showMenuTeam()">
+                <i class="ion-navicon-round"></i>
+                Menù
+            </a>
+        </div>
+	</ion-header-bar>
+	<ion-content>
+		<ion-list>
+            <div ng-repeat="player in vm.team.rosa">
+                <div class="item item-divider item-divider-role" ng-if="::$index===0 || vm.checkChangeRole($index,player.ruolo)">
+                    {{player.ruolo}}
+                </div>
+                <div class="item item-avatar">
+                    <div class="box-img">
+                        <img src="img/teams/{{player.team}}.jpg">
+                    </div>
+                    <h2>{{player.name}}</h2>
+                    <p>{{player.team}}</p>
+                </div>
+            </div>
+        </ion-list>
+        <div class="margin-tab"></div>
+	</ion-content>
+</ion-view>
